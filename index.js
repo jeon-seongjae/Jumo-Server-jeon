@@ -6,6 +6,13 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const userRouter = require('./Routes/user');
+const reviewRouter = require('./Routes/review');
+const makgeolliRouter = require('./Routes/makgeolli');
+const likeRouter = require('./Routes/like');
+const breweryRouter = require('./Routes/brewery');
+
+module.exports = router;
 const app = express();
 
 app.use(
@@ -25,11 +32,15 @@ app.use('/', (req, res) => {
     res.send(`😎 hello jumo!!`);
 });
 
+app.use('/user', userRouter);
+app.use('/review', reviewRouter);
+app.use('/makgeolli', makgeolliRouter);
+app.use('/like', likeRouter);
+app.use('/brewery', breweryRouter);
+
 app.use((err, req, res, next) => {
     console.log('error:', err);
 });
-
-jeon;
 
 let server;
 const PORT = 4000;
