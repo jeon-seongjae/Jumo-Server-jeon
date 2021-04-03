@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/info');
-router.post('/create');
-router.put('/update');
-router.delete('/remove');
+const reviewCreate = require('../Controller/Review/create');
+const reviewRemove = require('../Controller/Review/remove');
+const reviewUpdate = require('../Controller/Review/update');
+const reviewInfo = require('../Controller/Review/info');
+
+const auth = require('../middleware/auth');
+
+router.get('/info', auth, reviewInfo);
+router.post('/create', auth, reviewCreate);
+router.put('/update', auth, reviewUpdate);
+router.delete('/remove', auth, reviewRemove);
 
 module.exports = router;
