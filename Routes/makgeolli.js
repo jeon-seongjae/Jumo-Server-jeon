@@ -3,8 +3,6 @@ const router = express.Router();
 
 const makgeolliInfo = require('../Controller/makgeolli/info');
 
-const auth = require('../middleware/auth');
-
-router.get('/info', auth, makgeolliInfo);
+router.get('/info', makgeolliInfo);
 
 module.exports = router;

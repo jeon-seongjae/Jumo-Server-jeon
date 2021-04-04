@@ -3,8 +3,6 @@ const router = express.Router();
 
 const breweryInfo = require('../Controller/Brewery/info');
 
-const auth = require('../middleware/auth');
-
-router.get('/info', auth, breweryInfo);
+router.get('/info', breweryInfo);
 
 module.exports = router;
