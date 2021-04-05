@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
         ).then(result => {
             like
                 .destroy({
-                    where: { makgeolli_id: result.dataValues.id, user_id: res.locals.userId } //아마 이렇게 되면 유저 테이블에도 삭제 해줘야 할텐데 그건 포스트맨 하면서 확인해보자
+                    where: { makgeolli_id: result.dataValues.id, user_id: res.locals.userId } //테이블에 고유 아이디가 클라한테 있으면 그걸로 찾으면 될듯하다
                 })
         })
 }
