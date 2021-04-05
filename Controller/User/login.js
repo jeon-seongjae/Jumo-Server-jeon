@@ -13,11 +13,11 @@ module.exports = async (req, res) => {
         where: { email: email }
     });
     if (!userInfo) {
-        res.status(401).json({ message: '로그인 실패' });
+        res.status(404).json({ message: '유효하지 않는 이메일 입니다.' });
     }
     const validPassword = await bcrypt.compare(password, userInfo.dataValues.password);
     if (!validPassword) {
-        res.status(400).json({ message: '회원 정보가 올바르지 않습니다.' });
+        res.status(400).json({ message: '회원 비밀번호가 올바르지 않습니다.' });
     } else {
         // result에서 사용자 비밀번호 삭제
         delete userInfo.dataValues.password;

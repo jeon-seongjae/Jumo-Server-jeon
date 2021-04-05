@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         })
         .then(([result, created]) => {
             if (!created) {
-                res.send('이미 존재한는 이메일 입니다.')
+                res.status(400).send({ message: "이미 존재하는 이메일 입니다." })
             } else {
                 res.status(201).json({
                     data: result.dataValues,

@@ -14,7 +14,7 @@ module.exports = {
         //accessToken 전송
         res.json({
             data: { accessToken: accessToken },
-            message: 'ok'
+            message: '로그인 완료!'
         });
     },
     sendRefreshToken: (res, refreshToken) => {
