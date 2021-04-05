@@ -1,4 +1,4 @@
-const { isAuthorized } = require('../Controllers/tokenFunctions');
+const { isAuthorized } = require('../Controller/tokenFunctions');
 
 module.exports = (req, res, next) => {
     try {

@@ -12,7 +12,6 @@ const makgeolliRouter = require('./Routes/makgeolli');
 const likeRouter = require('./Routes/like');
 const breweryRouter = require('./Routes/brewery');
 
-module.exports = router;
 const app = express();
 
 app.use(
@@ -28,15 +27,16 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', (req, res) => {
-    res.send(`😎 hello jumo!!`);
-});
 
 app.use('/user', userRouter);
 app.use('/review', reviewRouter);
 app.use('/makgeolli', makgeolliRouter);
 app.use('/like', likeRouter);
 app.use('/brewery', breweryRouter);
+
+app.use('/', (req, res) => {
+    res.send(`😎 hello jumo!!`);
+});
 
 app.use((err, req, res, next) => {
     console.log('error:', err);
