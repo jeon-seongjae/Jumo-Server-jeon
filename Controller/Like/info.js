@@ -1,7 +1,7 @@
-const { review } = require('../../models');
+const { like } = require('../../models');
 
-module.exports = async (req, res) => {
-    review
+module.exports = async (res, req) => {
+    like
         .findAll({
             where: { id: res.locals.userId }
         })
