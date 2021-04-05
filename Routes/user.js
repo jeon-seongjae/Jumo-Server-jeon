@@ -6,6 +6,7 @@ const userLogout = require('../Controller/User/logout');
 const userSignup = require('../Controller/User/signup');
 const userInfo = require('../Controller/User/info');
 const refreshTokenRequest = require('../Controller/User/refreshTokenRequest');
+const userUpdate = require('../Controller/User/update');
 
 const auth = require('../middleware/auth');
 
@@ -13,7 +14,8 @@ const auth = require('../middleware/auth');
 router.get('/info', auth, userInfo);
 router.post('/signup', userSignup);
 router.post('/logout', auth, userLogout);
-router.post('/login', userLogin);;
-router.post('/refereshToken', refreshTokenRequest)
+router.post('/login', userLogin);
+router.post('/refereshToken', refreshTokenRequest);
+router.put('./update', auth, userUpdate);
 
 module.exports = router;

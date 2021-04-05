@@ -1,7 +1,7 @@
 const { like, makgeolli, user } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { makgeolli_id, likes } = req.body.data;
+    const { makgeolli_id, likes } = req.body.data;  // 클라한테 막걸리 이름을 받는게 맞는건가?
     makgeolli
         .updata(
             {
