@@ -6,6 +6,6 @@ module.exports = async (req, res) => {
             where: { id: res.locals.userId }
         })
         .then(result => {
-            res.status(200).json({ data: result.dataValues, message: "ok" });
+            res.status(200).json({ data: result, message: "ok" });
         })
 }
