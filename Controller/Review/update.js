@@ -1,9 +1,9 @@
 const { review } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { star, comment, image, review_id } = req.body.data;
+    const { star, comment, image, review_id } = req.body;
     review
-        .updata(
+        .update(
             {
                 star: star,
                 comment: comment,
@@ -14,6 +14,6 @@ module.exports = async (req, res) => {
             }
         )
         .then(result => {
-            res.status(200).json({ data: result.dataValues, message: "ok" });
+            res.status(200).json({ data: result, message: "ok" });
         })
 }

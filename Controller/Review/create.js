@@ -1,7 +1,7 @@
 const { review, makgeolli } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { star, comment, image, name } = req.body.data;
+    const { star, comment, image, name } = req.body;
     makgeolli
         .findOne({
             where: { name: name }

@@ -1,19 +1,22 @@
-const { like, makgeolli, user } = require('../../models');
+const { like, makgeolli } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { makgeolli_id, likes } = req.body.data;  // 클라한테 막걸리 이름을 받는게 맞는건가?
+    const { makgeolli_id, likes, id } = req.body;
     makgeolli
-        .updata(
+        .update(
             {
                 likes: likes
             },
             {
-                where: makgeolli_id
+                where: { id: makgeolli_id }
             }
         ).then(result => {
             like
                 .destroy({
-                    where: { makgeolli_id: result.dataValues.id, user_id: res.locals.userId } //테이블에 고유 아이디가 클라한테 있으면 그걸로 찾으면 될듯하다
+                    where: { id: id }
+                })
+                .then(last => {
+                    res.status(200).json({ message: "삭제완료" });
                 })
         })
 }

@@ -1,11 +1,12 @@
 const { like } = require('../../models');
 
-module.exports = async (res, req) => {
+module.exports = async (req, res) => {
+    console.log(res.locals.userId);
     like
         .findAll({
-            where: { id: res.locals.userId }
+            where: { user_id: res.locals.userId }
         })
         .then(result => {
-            res.status(200).json({ data: result.dataValues, message: "ok" });
+            res.status(200).json({ data: result, message: "ok" });
         })
 }
