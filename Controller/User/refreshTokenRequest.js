@@ -2,7 +2,7 @@ const { user } = require('../../models');
 const {
     checkRefreshToken,
     generateAccessToken,
-    resendAccessToken,
+    resendNewAccessToken,
 } = require('../tokenFunctions');
 
 module.exports = (req, res) => {
@@ -30,7 +30,7 @@ module.exports = (req, res) => {
             }
             delete result.dataValues.password;
             const newAccessToken = generateAccessToken(result.dataValues);
-            resendAccessToken(res, newAccessToken, result.dataValues);
+            resendNewAccessToken(res, newAccessToken, result.dataValues);
         })
         .catch((err) => {
             console.log(err);   //에러 확인용
