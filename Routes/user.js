@@ -15,7 +15,7 @@ router.get('/info', auth, userInfo);
 router.post('/signup', userSignup);
 router.post('/logout', auth, userLogout);
 router.post('/login', userLogin);
-router.post('/refereshToken', refreshTokenRequest);
-router.put('./update', auth, userUpdate);
+router.post('/refreshToken', refreshTokenRequest);
+router.put('/update', auth, userUpdate);
 
 module.exports = router;
