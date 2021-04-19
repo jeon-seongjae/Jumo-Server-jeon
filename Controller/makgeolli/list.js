@@ -1,11 +1,11 @@
-const { makgeolli } = require('../../models');
+const { makgeolli, sequelize } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { name, views } = req.body;
+    const { name } = req.body;
     await makgeolli
         .update(
             {
-                views: views
+                views: sequelize.literal('views + 1')
             },
             {
                 where: { name: name }
