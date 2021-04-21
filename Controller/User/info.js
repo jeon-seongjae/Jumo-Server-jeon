@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
             where: { id: res.locals.userId }
         })
         .then(result => {
-            const { username, email, createdAt } = result[0].dataValues;
+            const { username, email, createdAt, id } = result[0].dataValues;
             res.status(200).json({
-                data: { username: username, email: email, createdAt: createdAt },
+                data: { username: username, email: email, createdAt: createdAt, id: id },
                 message: 'ok'
             });
         })

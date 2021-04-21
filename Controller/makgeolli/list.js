@@ -1,7 +1,7 @@
 const { makgeolli, sequelize } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { name } = req.body;
+    const { name } = req.query;
     await makgeolli
         .update(
             {
