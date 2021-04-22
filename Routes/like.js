@@ -8,7 +8,7 @@ const likeInfo = require('../Controller/Like/info');
 const auth = require('../middleware/auth');
 
 router.post('/create', auth, likeCreate);
-router.delete('/remove', auth, likeRemove);
+router.post('/remove', auth, likeRemove);
 router.get('/info', auth, likeInfo);
 // 이부분 다시 생각하자 막걸리에 있는 좋아요는 디폴트지만 마이페이지에 생성되는 좋아요는 새로 생성되어야 할 것 이다 
 

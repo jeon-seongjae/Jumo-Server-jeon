@@ -1,21 +1,21 @@
-const { like, makgeolli } = require('../../models');
+const { like, makgeolli, sequelize } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { makgeolli_id, likes, id } = req.body;
+    const { name, id } = req.body;
     makgeolli
         .update(
             {
-                likes: likes
+                likes: sequelize.literal('likes - 1')
             },
             {
-                where: { id: makgeolli_id }
+                where: { name: name }
             }
-        ).then(result => {
+        ).then(() => {
             like
                 .destroy({
                     where: { id: id }
                 })
-                .then(last => {
+                .then(() => {
                     res.status(200).json({ message: "삭제완료" });
                 })
         })
