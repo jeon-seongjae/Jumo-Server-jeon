@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     star: DataTypes.INTEGER,
     comment: DataTypes.STRING,
-    image: DataTypes.STRING
+    image: DataTypes.STRING,
+    username: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'review',
