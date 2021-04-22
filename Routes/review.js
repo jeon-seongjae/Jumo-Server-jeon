@@ -11,6 +11,6 @@ const auth = require('../middleware/auth');
 router.get('/info', auth, reviewInfo);
 router.post('/create', auth, reviewCreate);
 router.put('/update', auth, reviewUpdate);
-router.delete('/remove', auth, reviewRemove);
+router.post('/remove', auth, reviewRemove);
 
 module.exports = router;
