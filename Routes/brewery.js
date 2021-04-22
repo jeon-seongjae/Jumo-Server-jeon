@@ -7,6 +7,6 @@ const breweryRemove = require('../Controller/Brewery/remove');
 
 router.get('/info', breweryInfo);
 router.get('/list', breweryList);
-router.delete('/remove', breweryRemove);
+router.post('/remove', breweryRemove);
 
 module.exports = router;

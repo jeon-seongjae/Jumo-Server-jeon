@@ -12,7 +12,7 @@ router.get('/info', makgeolliInfo);
 router.get('/list', makgeolliList);
 router.get('/review', makgeolliReview);
 router.get('/rank', makgeolliRank);
-router.delete('/remove', makgeolliRemove);
+router.post('/remove', makgeolliRemove);
 router.get('/search', makgeolliSearch);
 
 module.exports = router;
