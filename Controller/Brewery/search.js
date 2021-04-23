@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     await brewery
         .findAll({
             where: {
-                name: { [Op.like]: "%" + query + "%" }
+                address: { [Op.like]: "%" + query + "%" }
             }
         })
         .then(result => {
