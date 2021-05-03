@@ -1,7 +1,7 @@
 const { review, makgeolli } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { star, comment, image, name } = req.body;
+    const { star, comment, image, name, username } = req.body;
     makgeolli
         .findOne({
             where: { name: name }
@@ -14,7 +14,8 @@ module.exports = async (req, res) => {
                         user_id: res.locals.userId,
                         star: star,
                         comment: comment,
-                        image: image
+                        image: image,
+                        username: username
                     },
                 )
                 .then(last => {
