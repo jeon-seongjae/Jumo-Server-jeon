@@ -1,7 +1,7 @@
 const { user } = require('../../models');
 
 module.exports = async (req, res) => {
-    const { username } = req.body.data;
+    const { username } = req.body;
     user
         .update(
             {
