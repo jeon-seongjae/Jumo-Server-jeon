@@ -11,6 +11,7 @@ const reviewRouter = require('./Routes/review');
 const makgeolliRouter = require('./Routes/makgeolli');
 const likeRouter = require('./Routes/like');
 const breweryRouter = require('./Routes/brewery');
+const socialRouter = require('./Routes/social');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use('/review', reviewRouter);
 app.use('/makgeolli', makgeolliRouter);
 app.use('/like', likeRouter);
 app.use('/brewery', breweryRouter);
+app.use('/social', socialRouter);
 
 app.use('/', (req, res) => {
     res.send(`😎 hello jumo!!`);
